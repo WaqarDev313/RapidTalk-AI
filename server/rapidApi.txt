@@ -1,0 +1,32 @@
+import axios from 'axios';
+
+const options = {
+  method: 'POST',
+  url: 'https://chatgpt-42.p.rapidapi.com/conversationgpt4-2',
+  headers: {
+    'x-rapidapi-key': '3a1f5636c6msh2ae1e5b81393214p146726jsna6b89d9a1cd1',
+    'x-rapidapi-host': 'chatgpt-42.p.rapidapi.com',
+    'Content-Type': 'application/json'
+  },
+  data: {
+    messages: [
+      {
+        role: 'user',
+        content: 'hello'
+      }
+    ],
+    system_prompt: '',
+    temperature: 0.9,
+    top_k: 5,
+    top_p: 0.9,
+    max_tokens: 256,
+    web_access: false
+  }
+};
+
+try {
+	const response = await axios.request(options);
+	console.log(response.data);
+} catch (error) {
+	console.error(error);
+}
